@@ -1,0 +1,27 @@
+version: '3'
+
+volumes:
+  grafana-storage:
+  prometheus-storage:
+
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    container_name: grafana
+    volumes:
+      - './grafana/provisioning:/etc/grafana/provisioning'
+      - './grafana/dashboards:/var/lib/grafana/dashboards'
+      - 'grafana-storage:/var/lib/grafana'
+    environment:
+      GF_INSTALL_PLUGINS: "grafana-piechart-panel, natel-plotly-panel, blackmirror1-singlestat-math-panel, btplc-trend-box-panel, marcuscalidus-svg-panel, michaeldmoore-multistat-panel, yesoreyeram-boomtable-panel, ryantxu-ajax-panel, grafana-influxdb-flux-datasource, fetzerch-sunandmoon-datasource, andig-darksky-datasource, simpod-json-datasource"
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    container_name: prometheus
+    volumes:
+      - './prometheus/prometheus.yml:/etc/prometheus/prometheus.yml'
+      - 'prometheus-storage:/prometheus'

@@ -1,0 +1,44 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+alerting:
+  alertmanagers:
+  - follow_redirects: true
+    enable_http2: true
+    scheme: http
+    timeout: 10s
+    api_version: v2
+    static_configs:
+    - targets: []
+scrape_configs:
+# Prisma Cloud scrape configuration
+- job_name: twistlock
+  scheme: https
+  static_configs:
+# Replace "target" and "metrics_path" with your path to Console respectively
+  - targets: ['us-east1.cloud.twistlock.com']
+  metrics_path: /us-1-123456789/api/v1/metrics
+# Access/secret API key with Compute Auditor (or greater) access
+  basic_auth:
+    username: 'ACCESS_KEY'
+    password: 'SECRET_KEY'
+
+# Grafana monitoring 
+- job_name: grafana
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets:
+    - grafana:3000
+
+# Prometheus self-monitoring
+- job_name: prometheus  
+  honor_timestamps: true 
+  metrics_path: /metrics
+  scheme: http
+  follow_redirects: true
+  enable_http2: true
+  static_configs:
+  - targets:
+    - localhost:9090
