@@ -1,31 +1,18 @@
-# pcs-opensource
-Template for all Prisma Cloud open source projects
+# Prisma Cloud metrics and monitoring
 
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![support](https://img.shields.io/badge/Support%20Level-Community-yellowgreen)](./SUPPORT.md)
 
-## Description
-An outline about your project and overview of use.
+## !!! BY DEFAULT PROMETHEUS IS NOT AUTHENTICATED !!!
+Be sure to secure Prometheus, unauthenticated by default
 
-### Example Formatting
-* How bullet things
-* Step-by-step bullets
-```
-code blocks for commands
-```
-Can also do `inline code` for more specifics
+### Required config
+Edit [./prometheus/prometheus.yml](./prometheus/prometheus.yml) with your `Path to Console` and access/secret key
 
-### More examples
-1. Numbered list
-1. Like so
-1. More info
+### Data Sources
+Append new data sources in [/grafana/provisioning/datasources/all_sources.yml](./grafana/provisioning/datasources/all_sources.yml)
 
-
-## Version History
-
-* 0.2
-    * Various changes
-* 0.1
-    * Initial Release
+### Dashboards
+Add new `.json` files of dashboards in [./grafana/dashboards](./grafana/dashboards/)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
