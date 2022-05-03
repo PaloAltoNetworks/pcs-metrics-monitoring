@@ -28,8 +28,11 @@ Be sure to secure Prometheus, unauthenticated by default
 
 * Grafana
     * Can't see dashboards: Check under "Dashboards > Browse" and expand the 2 folders:
+    
 ![](2022-05-03-16-00-50.png)
+
     * No data in dashboards: Go to "Configuration > Data Sources > Prometheus", scroll to the bottom and click "Save & test"
+
 ![](2022-05-03-15-59-16.png)
 
 ## License
