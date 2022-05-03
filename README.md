@@ -16,6 +16,10 @@ Be sure to secure Prometheus, unauthenticated by default
     * Run `docker-compose up -d`
     * Verify both **Prometheus** and **Grafana** containers are started successfully and reachable
         * If running locally, should be *http://localhost:9090/* for Prometheus, and *http://localhost:3000/* for Grafana
+1. Verify
+    * You should now see dashboards like below!
+    
+![](2022-05-03-16-05-38.png)
 
 ## Troubleshooting
 ### Prometheus
