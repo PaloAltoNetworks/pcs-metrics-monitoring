@@ -5,14 +5,12 @@
 ## !!! BY DEFAULT PROMETHEUS IS NOT AUTHENTICATED !!!
 Be sure to secure Prometheus, unauthenticated by default
 
-### Required config
-Edit [./prometheus/prometheus.yml](./prometheus/prometheus.yml) with your `Path to Console` and access/secret key
-
-### Data Sources
-Append new data sources in [/grafana/provisioning/datasources/all_sources.yml](./grafana/provisioning/datasources/all_sources.yml)
-
-### Dashboards
-Add new `.json` files of dashboards in [./grafana/dashboards](./grafana/dashboards/)
+### Pre-deployment config
+* Prometheus
+    * Edit [./prometheus/prometheus.yml](./prometheus/prometheus.yml) with your `Path to Console` and your `access/secret` key
+* Grafana
+    * (Optional) Append new data sources in [/grafana/provisioning/datasources/all_sources.yml](./grafana/provisioning/datasources/all_sources.yml)
+    * (Optional) Add new `.json` files of dashboards in [./grafana/dashboards](./grafana/dashboards/)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
